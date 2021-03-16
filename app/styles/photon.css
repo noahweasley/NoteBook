@@ -2267,7 +2267,7 @@ td:last-child {
 
 .tab-item {
   position: relative;
-  flex: 1;
+  flex-basis: 130px;
   padding: 3px;
   font-size: 12px;
   text-align: center;

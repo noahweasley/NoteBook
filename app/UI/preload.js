@@ -6,6 +6,6 @@ window.addEventListener('DOMContentLoaded', () => {
         const footer = document.querySelector('footer');
         const footerTitle = document.querySelector('h1');
         footerTitle.style.color = isDarkMode ? "white" : "black";
-        footer.style.backgroundColor = `#${accentColor}`;
+        footer.style.backgroundColor = isDarkMode ? `#${accentColor}` : "white";
     });
 })
