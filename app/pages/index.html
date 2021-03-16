@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NoteBook 2.0</title>
+    <link rel="stylesheet" href="../styles/photon.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <script src="../UI/renderer.js" async defer></script>
+</head>
+
+<body>
+    <div class="window">
+        <!-- <header class="toolbar toolbar-header">
+    <h1 class="title">Header</h1>
+  </header> -->
+        <div class="window-content">
+            <div class="pane-group">
+                <div class="pane-sm sidebar">
+
+                    <!-- start notebook list item -->
+                    <ul class="list-group">
+
+                        <li class="list-group-header">
+                            <input class="form-control" type="text" placeholder="Search notes">
+                        </li>
+
+                        <li class="list-group-item">
+                            <img class="media-object pull-left" src="../icons/book.svg" width="32" height="32">
+                            <div class="media-body">
+                                <strong>List item title</strong>
+                                <p>Lorem ipsum dolor sit amet.</p>
+                            </div>
+                        </li>
+
+                        <li class="list-group-item">
+                            <img class="media-object pull-left" src="../icons/book.svg" width="32" height="32">
+                            <div class="media-body">
+                                <strong>List item title</strong>
+                                <p>Lorem ipsum dolor sit amet.</p>
+                            </div>
+                        </li>
+
+                        <li class="list-group-item">
+                            <img class="media-object pull-left" src="../icons/book.svg" width="32" height="32">
+                            <div class="media-body">
+                                <strong>List item title</strong>
+                                <p>Lorem ipsum dolor sit amet.</p>
+                            </div>
+                        </li>
+
+                        <li class="list-group-item">
+                            <img class="media-object pull-left" src="../icons/book.svg" width="32" height="32">
+                            <div class="media-body">
+                                <strong>List item title</strong>
+                                <p>Lorem ipsum dolor sit amet.</p>
+                            </div>
+                        </li>
+
+                        <li class="list-group-item">
+                            <img class="media-object pull-left" src="../icons/book.svg" width="32" height="32">
+                            <div class="media-body">
+                                <strong>List item title</strong>
+                                <p>Lorem ipsum dolor sit amet.</p>
+                            </div>
+                        </li>
+
+                    </ul>
+                    <!-- end notebook list item -->
+                </div>
+
+                <div class="pane">
+                    <!-- tabs -->
+                    <div class="tab-group">
+
+                        <div class="tab-item">
+                            <span class="icon icon-cancel icon-close-tab"></span>
+                            Note 1
+                        </div>
+
+                        <div class="tab-item">
+                            <span class="icon icon-cancel icon-close-tab"></span>
+                            Note 2
+                        </div>
+
+                        <div class="tab-item">
+                            <span class="icon icon-cancel icon-close-tab"></span>
+                            Note 3
+                        </div>
+
+                        <div class="tab-item tab-item-fixed">
+                            <span class="icon icon-plus"></span>
+                        </div>
+
+                    </div>
+
+                    <!-- end tabs -->
+
+                    <textarea class="editor">Start Writing here</textarea>
+                </div>
+
+            </div>
+
+        </div>
+
+        <footer class="toolbar toolbar-footer">
+            <h1 class="title">Made with Electron and Photon</h1>
+        </footer>
+
+    </div>
+
+</body>
+
+</html>
