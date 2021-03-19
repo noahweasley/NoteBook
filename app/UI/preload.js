@@ -3,8 +3,9 @@ const { ipcRenderer } = require('electron')
 // It has the same sandbox as a Chrome extension.
 window.addEventListener('DOMContentLoaded', () => {
     let listContainer = document.getElementById('list-container');
-    listContainer.addEventListener('click', () => {
-        console.log('tab was clicked');
+    listContainer.addEventListener('click', (e) => {
+       let listItem = e.currentTarget;
+       console.log(listItem);
     })
 
 });
