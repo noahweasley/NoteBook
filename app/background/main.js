@@ -83,7 +83,7 @@ const createWindow = exports.createWindow = (rX, rY, rW, rH, wasMax) => {
     // Load the start up page
     win.loadFile(path.join(__dirname, '../pages/index.html'));
     win.on('ready-to-show', win.show);
-    win.webContents.toggleDevTools();
+    // win.webContents.toggleDevTools();
     // win.on('close', () => {
     //     database.DB_addWindowProperties({ x, y, width, height, wasMax: true });
     // });

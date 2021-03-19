@@ -1,11 +1,14 @@
+'use strict';
+
 // All of the Node.js APIs are available in the preload process.
 // It has the same sandbox as a Chrome extension.
 window.addEventListener('DOMContentLoaded', () => {
     checkSidebarItemClick();
 });
 
+// start sidebar check
 function checkSidebarItemClick() {
-    document.querySelector('.list-group').addEventListener('click', _e => {
+    document.querySelector('.list-group').addEventListener('click', () => {
         let tabItem = document.createElement('div');
         tabItem.classList.add('tab-item');
         let span = document.createElement('span');
@@ -21,7 +24,7 @@ function checkSidebarItemClick() {
             // Existing or non-existing tab container
             let tabGroup = document.querySelector('.tab-group');
             return tabGroup ? tabGroup : createTabGroup();
-
+            // Create new tab group if not exists
             function createTabGroup() {
                 let pane = document.querySelector('.pane');
                 if (pane) {
@@ -29,7 +32,9 @@ function checkSidebarItemClick() {
                     tabGroup.classList.add('tab-group');
                     pane.appendChild(tabGroup);
                 }
+                return tabGroup;  // the now existing tab group to append tab items
             }
         }
     }
 }
+// end sidebar check
