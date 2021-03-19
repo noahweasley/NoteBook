@@ -15,24 +15,22 @@
 
 <body>
     <div class="window">
-        <!-- <header class="toolbar toolbar-header">
-    <h1 class="title">Header</h1>
-  </header> -->
+
         <div class="window-content">
             <div class="pane-group">
+
                 <div class="pane-sm sidebar">
 
                     <!-- start notebook list item -->
 
-
-                    <ul class="list-group">
+                    <ul class="list-group" id="list-container">
 
                         <li class="list-group-header">
                             <input class="form-control" type="text" placeholder="Search notes">
                         </li>
 
                         <li class="list-group-item">
-                            <img class="media-object pull-left" src="../icons/book.svg" width="32" height="32">
+                            <img class="media-object pull-left" src="../graphics/book.svg" width="32" height="32">
                             <div class="media-body">
                                 <strong>My Life as an Engineer</strong>
                                 <p>My name is Noah, and I study Computer Engineering at Unizik.</p>
@@ -40,7 +38,7 @@
                         </li>
 
                         <li class="list-group-item">
-                            <img class="media-object pull-left" src="../icons/book.svg" width="32" height="32">
+                            <img class="media-object pull-left" src="../graphics/book.svg" width="32" height="32">
                             <div class="media-body">
                                 <strong>An essay on "My best friend"</strong>
                                 <p>My best friend is Noah, and he is a Computer Engineer. He is very kind.</p>
@@ -48,7 +46,7 @@
                         </li>
 
                         <li class="list-group-item">
-                            <img class="media-object pull-left" src="../icons/book.svg" width="32" height="32">
+                            <img class="media-object pull-left" src="../graphics/book.svg" width="32" height="32">
                             <div class="media-body">
                                 <strong>A very random title I never thought of.</strong>
                                 <p>Why the heck do you even want to know what the content are.</p>
@@ -56,7 +54,7 @@
                         </li>
 
                         <li class="list-group-item">
-                            <img class="media-object pull-left" src="../icons/book.svg" width="32" height="32">
+                            <img class="media-object pull-left" src="../graphics/book.svg" width="32" height="32">
                             <div class="media-body">
                                 <strong>Hey there, Noah</strong>
                                 <p>This description is not useful.</p>
@@ -64,7 +62,7 @@
                         </li>
 
                         <li class="list-group-item">
-                            <img class="media-object pull-left" src="../icons/book.svg" width="32" height="32">
+                            <img class="media-object pull-left" src="../graphics/book.svg" width="32" height="32">
                             <div class="media-body">
                                 <strong>List item title</strong>
                                 <p>Lorem ipsum dolor sit amet.</p>
@@ -81,14 +79,14 @@
 
                         <div class="tab-item">
                             <span class="icon icon-cancel icon-close-tab"></span>
-                            Note 1
+                            Welcome
                         </div>
-                      
+
                     </div>
-
                     <!-- end tabs -->
-
-                    <textarea class="editor">Start Writing here</textarea>
+                    <textarea class="editor invisible">Start Writing here</textarea>
+                    <div class="v-container visible default background-image">
+                    </div>
                 </div>
 
             </div>
@@ -96,7 +94,7 @@
         </div>
 
         <footer class="toolbar toolbar-footer">
-            <h1 class="title">VisionPhix</h1>
+            <h1 class="title"></h1>
         </footer>
 
     </div>

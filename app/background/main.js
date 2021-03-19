@@ -1,9 +1,9 @@
 'use strict';
 
-const { BrowserWindow, app, systemPreferences, nativeTheme } = require("electron");
+require('./menu');
+const { BrowserWindow, app} = require("electron");
 const path = require('path');
 // const database = require('./database');
-
 
 // Create new window on application first startup
 app.whenReady().then(() => {
@@ -16,6 +16,7 @@ app.whenReady().then(() => {
     //         createWindow(xCord, yCord, width, height, isMaximized);
     //         database.DB_clearWindowProperties(); // delete all rows
     //     }).catch(() => createWindow())
+
     createWindow()
 })
 
@@ -81,24 +82,9 @@ const createWindow = exports.createWindow = (rX, rY, rW, rH, wasMax) => {
 
     // Load the start up page
     win.loadFile(path.join(__dirname, '../pages/index.html'));
-    win.webContents.send('color', systemPreferences.getAccentColor(), nativeTheme.shouldUseDarkColors);
-    win.on('ready-to-show', () => {
-        win.show();
-    });
-
+    win.on('ready-to-show', win.show);
+    win.webContents.toggleDevTools();
     // win.on('close', () => {
     //     database.DB_addWindowProperties({ x, y, width, height, wasMax: true });
     // });
-
-    // Send a message to the window-blurred channel so that renderer process
-    // can display blur status
-    win.on('blur', () => {
-        win.webContents.send('window-blurred');
-    });
-
-    // Send a message to the window-in-focus channel so that renderer process
-    // can display blur status
-    win.on('focus', () => {
-        win.webContents.send('window-in-focus')
-    });
 }
