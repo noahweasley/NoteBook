@@ -2,6 +2,9 @@
     overflow: hidden;
 }
 
+.tab-item-text {
+    margin: 0;
+}
 .pane-sm {
     max-width: 230px;
     min-width: 200px;

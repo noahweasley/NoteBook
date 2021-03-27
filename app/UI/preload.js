@@ -18,8 +18,7 @@ function checkToolbarItemClick() {
             i.addEventListener('click', () => {
                 // deactivate or activate current only
                 let x = Array.from(i.parentNode.children).indexOf(i);
-                activeIndices[x] ? i.classList.remove('side-icon-active')
-                    : i.classList.add('side-icon-active');
+                activeIndices[x] ? i.classList.remove('side-icon-active') : i.classList.add('side-icon-active');
                 activeIndices[x] = !activeIndices[x];
 
                 // deactivate all except current
@@ -40,10 +39,12 @@ function checkToolbarItemClick() {
 function checkSidebarItemClick() {
     document.querySelector('.list-group').addEventListener('click', () => {
         let tabItem = document.createElement('div');
-        tabItem.classList.add('tab-item');
         let span = document.createElement('span');
+        let tabItemText = document.createTextNode("Hello");;
+        tabItem.classList.add('tab-item');
         span.classList.add("icon", "icon-cancel", "icon-close-tab");
         tabItem.appendChild(span);
+        tabItem.appendChild(tabItemText);
         appendTabItem(tabItem);
 
         // append tab item 
