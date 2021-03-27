@@ -8,8 +8,8 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 function checkToolbarItemClick() {
-    let activeIndices = [false, false, false];
     checkListAccess();
+    let activeIndices = [];
 
     function checkListAccess() {
         let toolIcons = document.querySelectorAll('.side-icon');
