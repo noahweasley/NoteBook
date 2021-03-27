@@ -1,7 +1,7 @@
 'use strict';
 
 require('./menu');
-const { BrowserWindow, app} = require("electron");
+const { BrowserWindow, app } = require("electron");
 const path = require('path');
 // const database = require('./database');
 
@@ -56,7 +56,7 @@ const createWindow = exports.createWindow = (rX, rY, rW, rH, wasMax) => {
     x = rX != null && !wasMax ? rX : x;
     y = rY != null && !wasMax ? rY : y;
 
-    let width = 800;
+    let width = 900;
     let height = 500;
 
     width = rW != null && !wasMax ? rW : width;
@@ -67,6 +67,8 @@ const createWindow = exports.createWindow = (rX, rY, rW, rH, wasMax) => {
         x,
         y,
         width,
+        minWidth: 630,
+        minHeight: 380,
         height,
         frame: true,
         backgroundColor: '#fff',
@@ -84,7 +86,8 @@ const createWindow = exports.createWindow = (rX, rY, rW, rH, wasMax) => {
     win.loadFile(path.join(__dirname, '../pages/index.html'));
     win.on('ready-to-show', win.show);
     // win.webContents.toggleDevTools();
-    // win.on('close', () => {
-    //     database.DB_addWindowProperties({ x, y, width, height, wasMax: true });
-    // });
+    win.on('close', () => {
+        // database.DB_addWindowProperties({ x, y, width, height, wasMax: true });
+        // console.log(win.getSize())
+    });
 }

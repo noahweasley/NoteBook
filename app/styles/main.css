@@ -1,3 +1,7 @@
+* {
+    overflow: hidden;
+}
+
 .pane-sm {
     max-width: 230px;
     min-width: 200px;
@@ -6,7 +10,29 @@
 .v-container {
     background-color: #e9e9e9;
     text-align: center;
-    font-family: cursive;
+}
+
+.v-container :first-child {
+    position: relative;
+    top: 15%;
+}
+
+.v-container :nth-child(2) {
+    position: relative;
+    top: 15%;
+}
+
+.v-container :last-child {
+    position: relative;
+    top: 20%;
+}
+
+.list-group {
+    overflow: auto;
+}
+
+.cursor-grab {
+    cursor: grab;
 }
 
 .list-group-item:hover {
@@ -24,14 +50,15 @@
 
 .editor {
     margin: 0;
-    overflow: auto;
+    overflow: scroll;
     outline: none;
     resize: none;
     border: none;
-    background-color: rgba(0, 0, 0, 0.007);
+    background-color: #f1efef;
     padding: 8px 8px 8px 8px;
     width: 100%;
     height: 100%;
+    cursor: text;
 }
 
 .editor::selection {
@@ -43,12 +70,6 @@
     width: 100%;
     height: 100%;
     pointer-events: none;
-}
-
-.background-image {
-    background-image: url('../graphics/Note.png');
-    background-position: center;
-    background-repeat: no-repeat;
 }
 
 .pane {
@@ -67,4 +88,31 @@
 .invisible {
     visibility: hidden !important;
     display: none;
+}
+
+.side-icon {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid #ddd;
+    font-size: 32px;
+    display: flex;
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+    color: #666;
+    transition: opacity .1s linear, background-color .1s linear;
+}
+
+.side-icon * {
+    cursor: pointer;
+}
+
+.side-icon:hover, .side-icon-active {
+    color: black;
+}
+
+.side-icon-group {
+    width: 100%;
+    height: 100%;
 }
