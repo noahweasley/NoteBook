@@ -3,8 +3,12 @@
 }
 
 .tab-item-text {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
     margin: 0;
 }
+
 .pane-sm {
     max-width: 230px;
     min-width: 200px;
@@ -34,8 +38,8 @@
     overflow: auto;
 }
 
-.cursor-grab {
-    cursor: grab;
+.form-control {
+    cursor: text;
 }
 
 .list-group-item:hover {

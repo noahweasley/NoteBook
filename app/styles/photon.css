@@ -694,7 +694,6 @@ img {
 }
 
 .list-group * {
-  cursor: pointer;
   margin: 0;
   white-space: nowrap;
   overflow: hidden;
