@@ -6,6 +6,7 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    font-size: 12px;
     margin: 0;
 }
 
@@ -38,6 +39,10 @@
     overflow: auto;
 }
 
+.tab-group {
+    height: 35px;
+}
+
 .form-control {
     cursor: text;
 }
@@ -51,11 +56,16 @@
     background-color: rgba(0, 0, 0, 0.103);
 }
 
+.tab-item {
+    cursor: pointer;
+}
+
 .title {
     font-family: cursive;
 }
 
 .editor {
+    pointer-events: none;
     margin: 0;
     overflow: scroll;
     outline: none;
@@ -107,7 +117,7 @@
     text-align: center;
     align-content: center;
     justify-content: center;
-    color: #666;
+    color: grey;
     transition: opacity .1s linear, background-color .1s linear;
 }
 
@@ -115,7 +125,11 @@
     cursor: pointer;
 }
 
-.side-icon:hover, .side-icon-active {
+.side-icon:hover {
+    color: #666;
+}
+
+.side-icon:active, .side-icon-activated {
     color: black;
 }
 

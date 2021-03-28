@@ -2,31 +2,32 @@
 
 checkSidebarItemClick();
 checkToolbarItemClick();
+awaitCreateNewWindow();
+
+function awaitCreateNewWindow() {
+    let win = document.querySelector('.icon-window');
+    win.addEventListener('click', () => window.bridgeApis.send('new'));
+}
 
 function checkToolbarItemClick() {
     checkListAccess();
-    let activeIndices = [];
+    let active = true;
 
     function checkListAccess() {
-        let toolIcons = document.querySelectorAll('.side-icon');
+        let list = document.querySelector('.icon-list');
+        let sidebar = document.querySelector('.sidebar');
 
-        toolIcons.forEach(i => {
-            i.addEventListener('click', () => {
-                // deactivate or activate current only
-                let x = Array.from(i.parentNode.children).indexOf(i);
-                activeIndices[x] ? i.classList.remove('side-icon-active') : i.classList.add('side-icon-active');
-                activeIndices[x] = !activeIndices[x];
-
-                // deactivate all except current
-                for (let n = 0; n < toolIcons.length; n++) {
-                    if (n !== x) {
-                        let toolIcon = toolIcons[n];
-                        activeIndices[n] = false;
-                        toolIcon.classList.remove('side-icon-active');
-                    }
-                }
-            });
-        })
+        list.addEventListener('click', () => {
+            // deactivate or activate current only
+            if (active) {
+                list.classList.add('side-icon-activated');
+                sidebar.classList.add('invisible');
+            } else {
+                list.classList.remove('side-icon-activated');
+                sidebar.classList.remove('invisible');
+            }
+            active = !active;
+        });
 
     }
 }
@@ -49,6 +50,7 @@ function checkSidebarItemClick() {
 
                 // append tab item 
                 function appendTabItem(element) {
+                    if (getTabGroup().childElementCount > 2) return;
                     getTabGroup().appendChild(element);
 
                     // Get the tab group element to append the new tab

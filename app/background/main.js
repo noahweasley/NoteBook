@@ -1,7 +1,7 @@
 'use strict';
 
 require('./menu');
-const { BrowserWindow, app } = require("electron");
+const { BrowserWindow, app, ipcMain } = require("electron");
 const path = require('path');
 // const database = require('./database');
 
@@ -53,9 +53,6 @@ const createWindow = exports.createWindow = (rX, rY, rW, rH, wasMax) => {
         if (isOffScreen) x = y = 60;
     }
 
-    x = rX != null && !wasMax ? rX : x;
-    y = rY != null && !wasMax ? rY : y;
-
     let width = 900;
     let height = 500;
 
@@ -67,9 +64,11 @@ const createWindow = exports.createWindow = (rX, rY, rW, rH, wasMax) => {
         x,
         y,
         width,
+        height,
         minWidth: 630,
         minHeight: 380,
-        height,
+        maximizable: false,
+        resizable: false,
         frame: true,
         backgroundColor: '#fff',
         show: false,
@@ -91,3 +90,7 @@ const createWindow = exports.createWindow = (rX, rY, rW, rH, wasMax) => {
         // console.log(win.getSize())
     });
 }
+
+// main process callbacks
+ipcMain.on('new', createWindow);
+
