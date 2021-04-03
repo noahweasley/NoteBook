@@ -67,8 +67,6 @@ const createWindow = exports.createWindow = (rX, rY, rW, rH, wasMax) => {
         height,
         minWidth: 630,
         minHeight: 380,
-        maximizable: false,
-        resizable: false,
         frame: true,
         backgroundColor: '#fff',
         show: false,
