@@ -37,6 +37,19 @@ function checkToolbarItemClick() {
 function beginTabInitializations() {
     checkSidebarItemClick();
     checkTabItemClick();
+    beginCheckAllTabClose();
+
+    // start check tab close
+    function beginCheckAllTabClose() {
+        document.querySelectorAll('.icon-close-tab').forEach(closeTabIcon => checkTabClose(closeTabIcon))
+    } // end check tab close
+
+    function checkTabClose(closeTabIcon) {
+        closeTabIcon.addEventListener('click', function () {
+            let tabItem = closeTabIcon.parentNode;
+            tabItem.parentNode.removeChild(tabItem);  // remove self
+        })
+    }
 
     function doTabClickFunction() {
         ACTIVE_TAB = Array.from(tabItem.parentNode.children).indexOf(tabItem);
@@ -62,7 +75,7 @@ function beginTabInitializations() {
             .forEach(listItem => {
                 listItem.addEventListener('click', function () {
                     let newTab = document.createElement('div');
-                    let span = document.createElement('span');
+                    let closeIcon = document.createElement('span');
                     let tabItemText = document.createElement('p');
 
                     let oldTab = Array.from(document.querySelector('.tab-group').children)[ACTIVE_TAB];
@@ -70,11 +83,16 @@ function beginTabInitializations() {
                     tabItemText.innerText = listItem.lastElementChild.firstElementChild.innerText;
                     tabItemText.classList.add("tab-item-text");
                     newTab.classList.add('tab-item');
-                    span.classList.add("icon", "icon-cancel", "icon-close-tab");
-                    newTab.appendChild(span);
+                    closeIcon.classList.add("icon", "icon-cancel", "icon-close-tab");
+                    newTab.appendChild(closeIcon);
                     newTab.appendChild(tabItemText);
 
-                    appendTabItem(newTab, oldTab) ? setupTabListener(newTab) : deactivateTabListener(oldTab);
+                    if (appendTabItem(newTab, oldTab, closeIcon)) {
+                        setupTabListener(newTab)
+                        checkTabClose(closeIcon);
+                    } else {
+                        deactivateTabListener(oldTab);
+                    }
 
                     displayTextEditor(listItem.lastElementChild.lastElementChild.innerText);
 
