@@ -521,6 +521,7 @@ h6 {
 
 .toolbar-footer {
   border-top: 1px solid #c2c0c2;
+  background-color: #e9e9e9;
   -webkit-app-region: drag;
 }
 
@@ -2557,16 +2558,13 @@ th:last-child, td:last-child {
 
 .tab-item {
   position: relative;
-  flex-basis: 210px;
+  flex-basis: 33.3%;
   padding: 3px;
   font-size: 12px;
   text-align: center;
-  border-left: 1px solid #c2c2c2;
+  /* border-left: 1px solid #c2c2c2; */
   border-right: 1px solid #c2c2c2;
   background-color: #e9e9e9;
-  /* background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #b8b6b8), color-stop(100%, #b0aeb0));
-  background-image: -webkit-linear-gradient(top, #b8b6b8 0%, #b0aeb0 100%);
-  background-image: linear-gradient(to bottom, #b8b6b8 0%, #b0aeb0 100%); */
 }
 
 .tab-item:first-child {
@@ -2588,7 +2586,6 @@ th:last-child, td:last-child {
   height: 15px;
   font-size: 15px;
   line-height: 15px;
-  /* testing  */
   text-align: center;
   color: #666;
   opacity: 0;
@@ -2596,6 +2593,10 @@ th:last-child, td:last-child {
   border-radius: 3px;
   transform: translateY(-50%);
   z-index: 10;
+}
+
+.icon-close-tab {
+  cursor: pointer;
 }
 
 .tab-item:after {
@@ -2619,7 +2620,7 @@ th:last-child, td:last-child {
   opacity: 1;
 }
 
-.tab-item .icon-close-tab:hover {
+.tab-item:hover {
   background-color: rgba(0, 0, 0, 0.08);
 }
 

@@ -2,6 +2,10 @@
     overflow: hidden;
 }
 
+.tab-item {
+
+}
+
 .tab-item-text {
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -9,9 +13,11 @@
     font-size: 12px;
     text-align: center;
     position: relative;
-    top: 15%;
     padding: 0;
     margin: 0;
+    top: 15%;
+    left: 30px;
+    width: calc(100% - 60px);
 }
 
 .pane-sm {
@@ -76,6 +82,7 @@
     outline: none;
     resize: none;
     border: none;
+    caret-color: rgb(20, 157, 236);
     background-color: #f1efef;
     padding: 8px 8px 8px 8px;
     width: 100%;
@@ -130,15 +137,23 @@
     cursor: pointer;
 }
 
+.icon-mini {
+    font-size: 24px;
+}
+
 .side-icon:hover {
     color: #666;
 }
 
 .side-icon:active, .side-icon-activated {
-    color: black;
+    color: green;
 }
 
 .side-icon-group {
     width: 100%;
     height: 100%;
+}
+
+.icon-cancel:hover {
+    color: rgb(173, 6, 6);
 }

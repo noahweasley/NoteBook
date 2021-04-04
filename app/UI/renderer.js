@@ -1,5 +1,7 @@
 'use strict';
 
+let ACTIVE_TAB = 0;
+
 checkSidebarItemClick();
 checkToolbarItemClick();
 awaitCreateNewWindow();
@@ -37,22 +39,39 @@ function checkSidebarItemClick() {
     document.querySelectorAll('.list-group-item')
         .forEach(listItem => {
             listItem.addEventListener('click', function () {
-                let tabItem = document.createElement('div');
+                let newTab = document.createElement('div');
                 let span = document.createElement('span');
                 let tabItemText = document.createElement('p');
+
+                let oldTab = Array.from(document.querySelector('.tab-group').children)[ACTIVE_TAB];
+                
                 tabItemText.innerText = listItem.lastElementChild.firstElementChild.innerText;
                 tabItemText.classList.add("tab-item-text");
-                tabItem.classList.add('tab-item');
+                newTab.classList.add('tab-item');
                 span.classList.add("icon", "icon-cancel", "icon-close-tab");
-                tabItem.appendChild(span);
-                tabItem.appendChild(tabItemText);
-                appendTabItem(tabItem);
+                newTab.appendChild(span);
+                newTab.appendChild(tabItemText);
+
+                appendTabItem(newTab, oldTab);
+                displayTextEditor(listItem.lastElementChild.lastElementChild.innerText);
+
+                // display text editor 
+                function displayTextEditor(initialText) {
+                    document.querySelector('.v-container').classList.add("invisible");
+                    let editor = document.querySelector('.editor');
+                    editor.classList.remove("invisible");
+                    editor.value = initialText;
+                }
 
                 // append tab item 
-                function appendTabItem(element) {
-                    if (getTabGroup().childElementCount > 2) return;
-                    getTabGroup().appendChild(element);
+                function appendTabItem(newTab, oldTab) {
+                    if (getTabGroup().childElementCount > 2) {
+                        oldTab.replaceWith(newTab);
+                        return;
+                    }
 
+                    getTabGroup().appendChild(newTab);
+                    ACTIVE_TAB++;
                     // Get the tab group element to append the new tab
                     function getTabGroup() {
                         // Existing or non-existing tab container

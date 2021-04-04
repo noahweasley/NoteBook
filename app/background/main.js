@@ -65,7 +65,7 @@ const createWindow = exports.createWindow = (rX, rY, rW, rH, wasMax) => {
         y,
         width,
         height,
-        minWidth: 630,
+        minWidth: 800,
         minHeight: 380,
         frame: true,
         backgroundColor: '#fff',
@@ -91,4 +91,3 @@ const createWindow = exports.createWindow = (rX, rY, rW, rH, wasMax) => {
 
 // main process callbacks
 ipcMain.on('new', createWindow);
-
