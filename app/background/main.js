@@ -34,9 +34,7 @@ const createWindow = exports.createWindow = (rX, rY, rW, rH, wasMax) => {
     const focusedWindow = BrowserWindow.getFocusedWindow();
     if (focusedWindow) {
         let [posX, posY] = focusedWindow.getPosition();
-        // Log the window position
-        console.log(`	Window position \n x : ${posX}, y : ${posY}`);
-
+        
         if (!focusedWindow.isNormal())
             posX = posY = 50;
         // Randomly place the window on the screen
