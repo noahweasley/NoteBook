@@ -42,7 +42,6 @@ function beginTabInitialization() {
     function setupTabListener(tabItem) {
         tabItem.addEventListener('click', function () {
             ACTIVE_TAB = Array.from(tabItem.parentNode.children).indexOf(tabItem);
-            console.log(`active tab ${ACTIVE_TAB}`);
         })
     }
 
