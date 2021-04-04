@@ -21,4 +21,3 @@ An Electron JS Desktop app to write notes
 **/app/styles**: Contains all stylesheets.
 
 **/app/UI**: Contains all the javascript code that would run in the renderer process.
-
