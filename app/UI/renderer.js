@@ -59,6 +59,7 @@ function beginTabInitializations() {
     function setupTabListener(tabItem) {
         tabItem.addEventListener('click', doTabClickFunction);
     }
+    
     // deactivate all listener
     function deactivateTabListener(tabItem) {
         tabItem.remove('click', doTabClickFunction);
