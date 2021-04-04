@@ -74,11 +74,7 @@ function beginTabInitializations() {
                     newTab.appendChild(span);
                     newTab.appendChild(tabItemText);
 
-                    if (appendTabItem(newTab, oldTab)) {
-                        setupTabListener(newTab);
-                    } else {
-                        deactivateTabListener(oldTab);
-                    }
+                    appendTabItem(newTab, oldTab) ? setupTabListener(newTab) : deactivateTabListener(oldTab);
 
                     displayTextEditor(listItem.lastElementChild.lastElementChild.innerText);
 
