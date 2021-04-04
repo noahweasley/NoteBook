@@ -2588,6 +2588,7 @@ th:last-child, td:last-child {
   height: 15px;
   font-size: 15px;
   line-height: 15px;
+  /* testing  */
   text-align: center;
   color: #666;
   opacity: 0;
