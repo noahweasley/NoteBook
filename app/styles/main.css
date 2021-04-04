@@ -2,7 +2,6 @@
     overflow: hidden;
 }
 
-
 .tab-item-text {
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -153,4 +152,11 @@
 
 .icon-cancel:hover {
     color: rgb(173, 6, 6);
+}
+
+.icon-cancel:active {
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+    line-height: 16px;
 }
