@@ -2,10 +2,6 @@
     overflow: hidden;
 }
 
-.tab-item {
-
-}
-
 .tab-item-text {
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -33,6 +29,10 @@
 .v-container :first-child {
     position: relative;
     top: 15%;
+}
+
+.nav-pull-bottom {
+    margin-bottom: auto;
 }
 
 .v-container :nth-child(2) {
@@ -145,13 +145,16 @@
     color: #666;
 }
 
-.side-icon:active, .side-icon-activated {
+.side-icon:active,
+.side-icon-activated {
     color: green;
 }
 
 .side-icon-group {
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .icon-cancel:hover {
