@@ -5,8 +5,7 @@ const { contextBridge, ipcRenderer } = require('electron');
 // It has the same sandbox as a Chrome extension.
 window.addEventListener('DOMContentLoaded', () => {
     contextBridge.exposeInMainWorld(
-        "bridgeApis",
-        {
+        "bridgeApis", {
             send: (channel, data) => ipcRenderer.send(channel, data),
             on: (channel, callback) => ipcRenderer.on(channel, callback),
         }
