@@ -2,6 +2,88 @@
     overflow: hidden;
 }
 
+.title-bar {
+    width: 100%;
+    flex-basis: 30px;
+    display: flex;
+    flex-direction: row;
+    background-color: #666;
+    border-bottom: 1px solid rgba(20, 20, 20, 0.103);
+}
+
+.window-action-group {
+    background-color: rgba(20, 20, 20, 0.103);
+    z-index: 3000;
+    height: 100%;
+    flex-basis: 168px;
+    display: flex;
+    flex-direction: row;
+}
+
+.window-action {
+    display: flex;
+    flex-basis: 56px;
+    height: 100%;
+    font-size: 12px;
+}
+
+.window-action>img {
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+}
+
+.draggable-region {
+    background-color: inherit;
+    flex-basis: 100%;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    margin: 2px;
+}
+
+.offline-indicator {
+    width: 16px;
+    height: 16px;
+    /* offline:  rgb(250, 86, 86) online: greenyellow*/
+    background-color: skyblue;
+    border-radius: 50%;
+    margin: 5px 8px 8px 16px;
+    animation: smooth-blink 1s linear 0.5s 4 alternate;
+}
+
+@keyframes smooth-blink {
+    to {
+        opacity: 0;
+    }
+}
+
+.online {
+    background-color: greenyellow;
+    transition: 0.5s;
+}
+
+.offline {
+    background-color: rgb(250, 86, 86);
+    transition: 1s;
+}
+
+.draggable-region>p {
+    margin: 5px 0 0 8px;
+    color: #eeeeee;
+    text-align: left;
+    font-size: smaller;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+:is(#action-minimize, #action-window-resize):hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#action-close:hover {
+    background-color: rgba(228, 78, 78, 0.8);
+}
+
 .tab-item-text {
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -145,8 +227,7 @@
     color: #666;
 }
 
-.side-icon:active,
-.side-icon-activated {
+.side-icon:active, .side-icon-activated {
     color: green;
 }
 
