@@ -3,20 +3,9 @@
 require('./menu');
 const { BrowserWindow, app, ipcMain } = require("electron");
 const path = require('path');
-// const database = require('./database');
 
 // Create new window on application first startup
 app.whenReady().then(() => {
-    // Get the last saved window position and size
-    // database.DB_getWindowProperties()
-    //     .then((row) => {
-    //         let { xCord, yCord, width, height, isMaximized } = row[0];
-    //         // Now use the retrieved data to create window, but if this promise fails,
-    //         // Use the default {width: 800, height: 600}
-    //         createWindow(xCord, yCord, width, height, isMaximized);
-    //         database.DB_clearWindowProperties(); // delete all rows
-    //     }).catch(() => createWindow())
-
     createWindow()
 })
 
@@ -67,7 +56,7 @@ const createWindow = exports.createWindow = (rX, rY, rW, rH, wasMax) => {
         height,
         minWidth: 800,
         minHeight: 380,
-        frame: true,
+        frame: false,
         backgroundColor: '#fff',
         show: false,
         webPreferences: {
@@ -76,18 +65,29 @@ const createWindow = exports.createWindow = (rX, rY, rW, rH, wasMax) => {
             nodeIntegration: false,
             preload: path.join(__dirname, '../UI/preload.js')
         }
-
     });
 
     // Load the start up page
     win.loadFile(path.join(__dirname, '../pages/index.html'));
     win.on('ready-to-show', win.show);
     // win.webContents.toggleDevTools();
-    win.on('close', () => {
-        // database.DB_addWindowProperties({ x, y, width, height, wasMax: true });
-        // console.log(win.getSize())
-    });
+    win.on('close', () => { });
 }
 
 // main process callbacks
 ipcMain.on('new', createWindow);
+
+ipcMain.on('close-window', () => {
+    let window = BrowserWindow.getFocusedWindow();
+    window.close();
+})
+
+ipcMain.on('minimize-window', () => {
+    let window = BrowserWindow.getFocusedWindow();
+    window.minimize();
+})
+
+ipcMain.on('resize-window', () => {
+    let window = BrowserWindow.getFocusedWindow();
+    !window.isNormal() ? win.restore() : win.maximize();
+})
