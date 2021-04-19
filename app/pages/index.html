@@ -7,16 +7,44 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NoteBook 2.0</title>
+    <title>NoteBook</title>
     <link rel="stylesheet" href="../styles/photon.css">
     <link rel="stylesheet" href="../styles/main.css">
     <script src="../UI/renderer.js" async defer></script>
+    <script src="../UI/actions.js" async defer></script>
 </head>
 
 <body>
+
     <div class="window">
 
+        <div class="title-bar">
+
+            <div class="draggable-region draggable">
+                <div class="offline-indicator"></div>
+                <p class="titlebar-title">NoteBook ...</p>
+            </div>
+
+            <div class="window-action-group not-draggable">
+
+                <div class="window-action" id="action-minimize">
+                    <img src="../graphics/minimize.svg" alt="minimize icon">
+                </div>
+
+                <div class="window-action" id="action-window-resize">
+                    <img src="../graphics/restore.svg" alt="resize icon">
+                </div>
+
+                <div class="window-action" id="action-close">
+                    <img src="../graphics/close.svg" alt="close icon">
+                </div>
+
+            </div>
+
+        </div>
+
         <div class="window-content">
+
             <div class="pane-group">
 
                 <div class="pane-mini">
@@ -89,7 +117,8 @@
                             <img class="media-object pull-left" src="../graphics/book.svg" width="24" height="24">
                             <div class="media-body">
                                 <strong>List item title</strong>
-                                <p>Of or third florid had vexed yet thence. Before rill chill when harold, and not his feeble day left, the..</p>
+                                <p>Of or third florid had vexed yet thence. Before rill chill when harold, and not his
+                                    feeble day left, the..</p>
                             </div>
                         </li>
 
@@ -127,6 +156,7 @@
         </footer>
 
     </div>
+
 </body>
 
 </html>
