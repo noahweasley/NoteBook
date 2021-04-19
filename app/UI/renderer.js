@@ -4,11 +4,29 @@ let ACTIVE_TAB = 0;
 
 checkSidebarItemClick();
 checkToolbarItemClick();
-awaitCreateNewWindow();
+checkOnlineStatus();
 
-function awaitCreateNewWindow() {
-    let win = document.querySelector(".icon-window");
-    win.addEventListener("click", () => window.bridgeApis.send("new"));
+function checkOnlineStatus() {
+    let indicator = document.querySelector('.offline-indicator');
+    let title = document.querySelector('.titlebar-title');
+
+    // wait for 3 seconds. NoteBook is checking online status.
+    setTimeout(() => {
+        // Check online status every 1 second.
+        setInterval(() => {
+            if (navigator.onLine) {
+                indicator.classList.add('online');
+                indicator.classList.remove('offline');
+                title.innerText = "NoteBook is Online"
+            } else {
+                indicator.classList.add('offline');
+                indicator.classList.remove('online');
+                title.innerText = "NoteBook is Offline"
+            }
+        }, 1000);
+
+    }, 3000);
+
 }
 
 function checkToolbarItemClick() {
@@ -36,7 +54,7 @@ function checkToolbarItemClick() {
 // start sidebar check
 function checkSidebarItemClick() {
     document.querySelectorAll(".list-group-item").forEach((listItem) => {
-        listItem.addEventListener("click", function() {
+        listItem.addEventListener("click", function () {
             let newTab = document.createElement("div");
             let span = document.createElement("span");
             let tabItemText = document.createElement("p");
