@@ -27,4 +27,4 @@ An Electron JS Desktop app to write notes
 * Open the terminal in the same location as the project.
 * Run npm install && npm start
 
-** Now everything is set up, your should now see the app :) **
+**Now everything is set up, your should now see the app :)**
